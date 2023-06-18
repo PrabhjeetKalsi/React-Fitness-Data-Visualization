@@ -1,9 +1,10 @@
-import Graph from "./Graph.js";
+import Graph from "./components/Graph.js";
+import Form from "./components/Form.js";
 
 function App() {
   return (
-    <div className="App h1">
-      HEY!!
+    <div className="App">
+      <Form />
       <Graph />
     </div>
   );

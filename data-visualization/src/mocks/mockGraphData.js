@@ -1,8 +1,3 @@
-import { Line } from "react-chartjs-2";
-import { Chart, registerables } from "chart.js";
-
-Chart.register(...registerables);
-
 let dateLabels = [
   "Jun 10, 2023",
   "Jun 11, 2023",
@@ -14,7 +9,7 @@ let dateLabels = [
 let legPressReps = [6, 7, 7, 8, 10, 11];
 let legPressWeight = [70, 85, 100, 100, 130, 130];
 
-let data = {
+export let data = {
   labels: dateLabels,
   datasets: [
     {
@@ -32,7 +27,7 @@ let data = {
   ],
 };
 
-let options = {
+export let options = {
   plugins: {
     title: {
       text: "Leg Press",
@@ -72,13 +67,3 @@ let options = {
     },
   },
 };
-
-const Graph = () => {
-  return (
-    <div>
-      <Line data={data} options={options} />
-    </div>
-  );
-};
-
-export default Graph;
