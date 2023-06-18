@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { formatDate } from "../utils/utils.js";
 
-const Form = () => {
+const Form = ({ updateChartData }) => {
   const [formData, updateFormData] = useState({
     exercise: "",
     weight: "",
@@ -17,7 +18,7 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    updateChartData({ ...formData, date: formatDate(formData.date) });
   };
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
