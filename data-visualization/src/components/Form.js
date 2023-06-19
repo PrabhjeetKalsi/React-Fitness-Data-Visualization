@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { formatDate } from "../utils/utils.js";
+import "../css/Form.css";
 
 const Form = ({ updateChartData }) => {
   const [formData, updateFormData] = useState({
@@ -21,8 +22,20 @@ const Form = ({ updateChartData }) => {
     updateChartData({ ...formData, date: formatDate(formData.date) });
   };
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <form id="data-form" className="my-3 mx-5" onSubmit={handleSubmit}>
+    <div
+      className="small"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <form
+        id="data-form"
+        className="my-3 mx-5 px-5 py-4 rounded-3"
+        onSubmit={handleSubmit}
+        style={{ backgroundColor: "#E0E8F3" }}
+      >
+        <h4 className="mb-4">Add Data</h4>
         <div className="mb-3">
           <select
             className="form-select"
@@ -67,7 +80,7 @@ const Form = ({ updateChartData }) => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary" id="submit">
+        <button type="submit" className="btn form-button" id="submit">
           Submit
         </button>
       </form>
