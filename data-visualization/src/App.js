@@ -33,6 +33,7 @@ function App() {
       <Navbar />
       <Form updateChartData={updateChartData} />
       <Graph chartData={chartData} />
+      <Graph chartData={chartData} />
     </div>
   );
 }

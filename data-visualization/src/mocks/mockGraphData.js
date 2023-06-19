@@ -28,14 +28,20 @@ export let data = {
 };
 
 export let options = {
+  responsive: true,
   plugins: {
     title: {
       text: "Leg Press",
       align: "center",
       display: true,
-      font: {
-        weight: "bold",
-        size: 30,
+      font: function (context) {
+        var reqWidth = Math.round(context.chart.width / 2);
+        var size = Math.round(reqWidth / 12);
+        size = size > 30 ? 30 : size; // setting max limit to 12
+        return {
+          size: size,
+          weight: "bold",
+        };
       },
     },
   },
@@ -45,14 +51,30 @@ export let options = {
       title: {
         text: "Date",
         display: true,
-        font: { size: 20, weight: "bold" },
+        font: function (context) {
+          var reqWidth = Math.round(context.chart.width / 2);
+          var size = Math.round(reqWidth / 16);
+          size = size > 20 ? 20 : size;
+          return {
+            size: size,
+            weight: "bold",
+          };
+        },
       },
     },
     left: {
       title: {
         text: "Repititions",
         display: true,
-        font: { size: 20, weight: "bold" },
+        font: function (context) {
+          var reqWidth = Math.round(context.chart.width / 2);
+          var size = Math.round(reqWidth / 16);
+          size = size > 20 ? 20 : size;
+          return {
+            size: size,
+            weight: "bold",
+          };
+        },
       },
       beginAtZero: true,
     },
@@ -61,7 +83,15 @@ export let options = {
       title: {
         text: "Weight",
         display: true,
-        font: { size: 20, weight: "bold" },
+        font: function (context) {
+          var reqWidth = Math.round(context.chart.width / 2);
+          var size = Math.round(reqWidth / 16);
+          size = size > 20 ? 20 : size;
+          return {
+            size: size,
+            weight: "bold",
+          };
+        },
       },
       beginAtZero: true,
     },
