@@ -34,6 +34,7 @@ function App() {
       <Form updateChartData={updateChartData} />
       <Graph chartData={chartData} />
       <Graph chartData={chartData} />
+      <Graph chartData={chartData} />
     </div>
   );
 }

@@ -1,5 +1,7 @@
-.form {
-  background-color: "#E0E8F3" !important;
+.form-align {
+  display: flex;
+  justify-content: center;
+  font-family: "Kanit", sans-serif;
 }
 .form-heading {
   font-family: "Kanit", sans-serif;

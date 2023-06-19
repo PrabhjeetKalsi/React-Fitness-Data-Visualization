@@ -15,7 +15,7 @@ const Graph = ({ chartData }) => {
   }, [chartData]);
 
   return (
-    <div className="w-50 mx-auto my-5 shadow-lg border border-light rounded-3 graph">
+    <div className="mx-auto my-5 shadow-lg border border-light rounded-3 graph">
       <Line
         ref={chartRef}
         data={chartData.data}

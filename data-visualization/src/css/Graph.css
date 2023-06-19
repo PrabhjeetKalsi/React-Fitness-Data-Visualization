@@ -1,3 +1,15 @@
+@media (min-width: 1024px) {
+  .graph {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .graph {
+    width: 90%;
+  }
+}
+
 .graph:hover {
   transform: scale(1.03);
   -webkit-transition: transform 0.1s ease-in-out;
