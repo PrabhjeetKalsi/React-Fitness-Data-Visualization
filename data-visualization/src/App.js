@@ -28,13 +28,16 @@ function App() {
     });
   };
 
+  const Graphs = [];
+  for (let i = 0; i < 3; i++) {
+    Graphs.push(<Graph key={i} chartData={chartData} />);
+  }
+
   return (
     <div className="App">
       <Navbar />
       <Form updateChartData={updateChartData} />
-      <Graph chartData={chartData} />
-      <Graph chartData={chartData} />
-      <Graph chartData={chartData} />
+      {Graphs}
     </div>
   );
 }
