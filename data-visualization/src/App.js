@@ -2,12 +2,17 @@ import Graph from "./components/Graph.js";
 import Form from "./components/Form.js";
 import Navbar from "./components/Navbar.js";
 import { useState } from "react";
-import { options, data } from "../src/mocks/mockGraphData.js";
+import {
+  legPressOptions,
+  legPressData,
+} from "./mocks/legPressMockGraphData.js";
+
+const exercises = ["Dumbell Press", "Leg Press", "Bicep Curl"];
 
 function App() {
   const [chartData, setChartData] = useState({
-    options: options,
-    data: data,
+    options: legPressOptions,
+    data: legPressData,
   });
 
   const updateChartData = (formData) => {
@@ -29,9 +34,9 @@ function App() {
   };
 
   const Graphs = [];
-  for (let i = 0; i < 3; i++) {
-    Graphs.push(<Graph key={i} chartData={chartData} />);
-  }
+  exercises.forEach((exercise, idx) => {
+    Graphs.push(<Graph key={idx} chartData={chartData} />);
+  });
 
   return (
     <div className="App">

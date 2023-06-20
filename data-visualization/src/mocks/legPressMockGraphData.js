@@ -9,7 +9,7 @@ let dateLabels = [
 let legPressReps = [6, 7, 7, 8, 10, 11];
 let legPressWeight = [70, 85, 100, 100, 130, 130];
 
-export let data = {
+export let legPressData = {
   labels: dateLabels,
   datasets: [
     {
@@ -27,7 +27,7 @@ export let data = {
   ],
 };
 
-export let options = {
+export let legPressOptions = {
   responsive: true,
   plugins: {
     title: {
