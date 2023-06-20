@@ -1,6 +1,7 @@
 import Graph from "./components/Graph.js";
 import Form from "./components/Form.js";
 import Navbar from "./components/Navbar.js";
+import axios from "axios";
 import { useState } from "react";
 import {
   legPressOptions,
@@ -36,8 +37,18 @@ function App() {
     data: bicepCurlData,
   });
 
+  const sendDataToServer = async (data) => {
+    try {
+      const response = await axios.post("/data", { data });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const updateChartData = (formData) => {
     const { exercise, weight, reps, date } = formData;
+    sendDataToServer(formData);
     if (exercise === "Leg Press") {
       legPressChartData.data.datasets.forEach((dataset, idx) => {
         if (idx === 1) {
