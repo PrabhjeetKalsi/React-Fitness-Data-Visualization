@@ -6,36 +6,95 @@ import {
   legPressOptions,
   legPressData,
 } from "./mocks/legPressMockGraphData.js";
+import {
+  dumbellPressData,
+  dumbellPressOptions,
+} from "./mocks/dumbellPressMockGraphData.js";
+import {
+  bicepCurlData,
+  bicepCurlOptions,
+} from "./mocks/bicepCurlMockGraphData.js";
 
-const exercises = ["Dumbell Press", "Leg Press", "Bicep Curl"];
+const exercises = ["Leg Press", "Dumbell Press", "Bicep Curl"];
 
 function App() {
-  const [chartData, setChartData] = useState({
+  //Leg Press State Def
+  const [legPressChartData, setLegPressChartData] = useState({
     options: legPressOptions,
     data: legPressData,
   });
 
+  //Dumbell Press State Def
+  const [dumbellPressChartData, setDumbellPressChartData] = useState({
+    options: dumbellPressOptions,
+    data: dumbellPressData,
+  });
+
+  //Bicep Curl State Def
+  const [bicepCurlChartData, setBicepCurlChartData] = useState({
+    options: bicepCurlOptions,
+    data: bicepCurlData,
+  });
+
   const updateChartData = (formData) => {
     const { exercise, weight, reps, date } = formData;
-    chartData.data.datasets.forEach((dataset, idx) => {
-      if (idx === 1) {
-        dataset.data = [...dataset.data, weight];
-      } else {
-        dataset.data = [...dataset.data, reps];
-      }
-    });
-    setChartData({
-      ...chartData,
-      data: {
-        labels: [...chartData.data.labels, date],
-        datasets: [...chartData.data.datasets],
-      },
-    });
+    if (exercise === "Leg Press") {
+      legPressChartData.data.datasets.forEach((dataset, idx) => {
+        if (idx === 1) {
+          dataset.data = [...dataset.data, weight];
+        } else {
+          dataset.data = [...dataset.data, reps];
+        }
+      });
+      setLegPressChartData({
+        ...legPressChartData,
+        data: {
+          labels: [...legPressChartData.data.labels, date],
+          datasets: [...legPressChartData.data.datasets],
+        },
+      });
+    } else if (exercise === "Dumbell Press") {
+      dumbellPressChartData.data.datasets.forEach((dataset, idx) => {
+        if (idx === 1) {
+          dataset.data = [...dataset.data, weight];
+        } else {
+          dataset.data = [...dataset.data, reps];
+        }
+      });
+      setDumbellPressChartData({
+        ...dumbellPressChartData,
+        data: {
+          labels: [...dumbellPressChartData.data.labels, date],
+          datasets: [...dumbellPressChartData.data.datasets],
+        },
+      });
+    } else if (exercise === "Bicep Curl") {
+      bicepCurlChartData.data.datasets.forEach((dataset, idx) => {
+        if (idx === 1) {
+          dataset.data = [...dataset.data, weight];
+        } else {
+          dataset.data = [...dataset.data, reps];
+        }
+      });
+      setBicepCurlChartData({
+        ...bicepCurlChartData,
+        data: {
+          labels: [...bicepCurlChartData.data.labels, date],
+          datasets: [...bicepCurlChartData.data.datasets],
+        },
+      });
+    }
   };
 
   const Graphs = [];
   exercises.forEach((exercise, idx) => {
-    Graphs.push(<Graph key={idx} chartData={chartData} />);
+    if (exercise === "Leg Press") {
+      Graphs.push(<Graph key={idx} chartData={legPressChartData} />);
+    } else if (exercise === "Dumbell Press") {
+      Graphs.push(<Graph key={idx} chartData={dumbellPressChartData} />);
+    } else {
+      Graphs.push(<Graph key={idx} chartData={bicepCurlChartData} />);
+    }
   });
 
   return (
