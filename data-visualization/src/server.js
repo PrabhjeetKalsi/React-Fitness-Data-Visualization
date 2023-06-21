@@ -2,8 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 5000;
-const uri =
-  "mongodb+srv://prabhjeetkalsi:kalsi@fitnesstracker.ieduv0e.mongodb.net/?retryWrites=true&w=majority";
+const userName = process.argv[2];
+const password = process.argv[3];
+const uri = `mongodb+srv://${userName}:${password}@fitnesstracker.ieduv0e.mongodb.net/?retryWrites=true&w=majority`;
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
