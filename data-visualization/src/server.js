@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Data = require("./schema");
 const app = express();
 const port = process.env.PORT || 5000;
 const userName = process.argv[2];
@@ -14,6 +15,7 @@ async function connect() {
     await mongoose.connect(uri);
     console.log("Connected to MongoDB.");
   } catch (error) {
+    console.log("Connection Failed!!!!");
     console.log(error);
   }
 }
@@ -27,7 +29,12 @@ app.get("/", (req, res) => {
 });
 
 app.post("/data", (req, res) => {
-  const data = req.body;
+  //Saving Data to MongoDB
+  const { data } = req.body;
+  const newData = new Data(data);
+  newData.save();
+
+  //Logging Received Data
   console.log("Received data:", data);
   res.send("Data received successfully!");
 });
