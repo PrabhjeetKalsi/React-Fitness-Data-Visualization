@@ -38,3 +38,14 @@ app.post("/data", (req, res) => {
   console.log("Received data:", data);
   res.send("Data received successfully!");
 });
+
+app.get("/getdata", (req, res) => {
+  Data.find()
+    .then((data) => {
+      // Array of user documents
+      res.send(data);
+    })
+    .catch((error) => {
+      console.error("Error retrieving data:", error);
+    });
+});
