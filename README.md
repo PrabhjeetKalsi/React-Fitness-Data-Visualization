@@ -4,6 +4,7 @@
  - My username is `prabhjeetkalsi` and password is `kalsi`.
  - The server file can be run using command `node server.js <username> <password>` from directory `data-visualization\src`.
  - Server will start running on `PORT 5000`.
+ - If your IP address changes please whitelist it on the mongoDB website to connect to the database.
 
 ## React App
   - Launch React app from the directory `data-visualization` using command `npm start`.
