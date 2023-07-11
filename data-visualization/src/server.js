@@ -64,7 +64,15 @@ app.post("/userSignup", (req, res) => {
 app.post("/userLogin", (req, res) => {
   const { user } = req.body;
 
-  //Logging Received User
-  console.log("Received user:", user);
-  res.send("User received successfully!");
+  User.find({ username: user.username, password: user.password })
+    .then((user) => {
+      if (user.length === 0) {
+        res.send(
+          "User Not found or wrong password!! If you are first time user please signup"
+        );
+      } else {
+        res.send("");
+      }
+    })
+    .catch((err) => console.log(err));
 });
