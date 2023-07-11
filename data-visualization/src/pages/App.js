@@ -15,7 +15,7 @@ import {
   bicepCurlData,
   bicepCurlOptions,
 } from "../mocks/bicepCurlMockGraphData.js";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const exercises = ["Leg Press", "Dumbell Press", "Bicep Curl"];
 
@@ -111,8 +111,23 @@ function App({ loggedIn }) {
     }
   });
 
+  const navigate = useNavigate();
+
+  function goToLoginPage() {
+    navigate("/");
+  }
+
   if (!loggedIn) {
-    return <h1>Page Not Found!!!</h1>;
+    return (
+      <div className="d-flex justify-content-center my-5">
+        <h1>Session Logged Out!!!</h1>
+        <div>
+          <button className="btn border-dark my-2 mx-4" onClick={goToLoginPage}>
+            Click here to login again
+          </button>
+        </div>
+      </div>
+    );
   }
   return (
     <div className="App">
