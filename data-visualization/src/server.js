@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Data = require("./schema");
+const Data = require("./schema/data");
+const User = require("./schema/user");
 const app = express();
 const port = process.env.PORT || 5000;
 const userName = process.argv[2];
@@ -48,4 +49,11 @@ app.get("/getdata", (req, res) => {
     .catch((error) => {
       console.error("Error retrieving data:", error);
     });
+});
+
+app.post("/user", (req, res) => {
+  const { user } = req.body;
+  //Logging Received User
+  console.log("Received user:", user);
+  res.send("User received successfully!");
 });

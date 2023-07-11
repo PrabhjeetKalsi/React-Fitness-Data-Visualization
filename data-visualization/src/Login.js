@@ -2,26 +2,28 @@ import "./css/Form.css";
 import { useState } from "react";
 import Navbar from "./components/Navbar.js";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
-  const [username, updateUsername] = useState({
-    username: "",
-  });
+  const [username, updateUsername] = useState("");
 
-  const [password, updatePassword] = useState({
-    password: "",
-  });
+  const [password, updatePassword] = useState("");
 
   const handleUsername = (e) => {
-    updateUsername({
-      username: e.target.value,
-    });
+    updateUsername(e.target.value);
   };
 
   const handlePassword = (e) => {
-    updatePassword({
-      password: e.target.value,
-    });
+    updatePassword(e.target.value);
+  };
+
+  const sendUserToServer = async (user) => {
+    try {
+      const response = await axios.post("/user", { user });
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const navigate = useNavigate();
@@ -29,6 +31,8 @@ function Login() {
   const handleSubmit = (e) => {
     console.log(username, password);
     e.preventDefault();
+    const userData = { username, password };
+    sendUserToServer(userData);
     navigate("/user");
   };
 
