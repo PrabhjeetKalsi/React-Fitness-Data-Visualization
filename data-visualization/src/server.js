@@ -51,8 +51,19 @@ app.get("/getdata", (req, res) => {
     });
 });
 
-app.post("/user", (req, res) => {
+app.post("/userSignup", (req, res) => {
   const { user } = req.body;
+  const newUser = new User(user);
+  newUser.save();
+
+  //Logging Received User
+  console.log("Received user:", user);
+  res.send("User received successfully!");
+});
+
+app.post("/userLogin", (req, res) => {
+  const { user } = req.body;
+
   //Logging Received User
   console.log("Received user:", user);
   res.send("User received successfully!");

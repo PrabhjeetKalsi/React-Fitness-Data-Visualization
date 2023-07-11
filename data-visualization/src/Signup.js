@@ -19,7 +19,7 @@ function Signup() {
 
   const sendUserToServer = async (user) => {
     try {
-      const response = await axios.post("/user", { user });
+      const response = await axios.post("/userSignup", { user });
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -68,6 +68,9 @@ function Signup() {
           <button type="submit" className="btn form-button" id="submit">
             Submit
           </button>
+          <br />
+          <br />
+          <a href="/">Existing user? Login</a>
         </form>
       </div>
     </div>

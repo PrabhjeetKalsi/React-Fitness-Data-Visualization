@@ -19,7 +19,7 @@ function Login() {
 
   const sendUserToServer = async (user) => {
     try {
-      const response = await axios.post("/user", { user });
+      const response = await axios.post("/userLogin", { user });
       console.log(response.data);
     } catch (error) {
       console.log(error);
