@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Login() {
+function Signup() {
   const [username, updateUsername] = useState("");
 
   const [password, updatePassword] = useState("");
@@ -46,7 +46,7 @@ function Login() {
           style={{ backgroundColor: "#E0E8F3" }}
           onSubmit={handleSubmit}
         >
-          <h4 className="mb-4 form-heading">Login</h4>
+          <h4 className="mb-4 form-heading">Signup</h4>
           <div className="mb-3">
             <label className="form-label">Username</label>
             <input
@@ -68,13 +68,10 @@ function Login() {
           <button type="submit" className="btn form-button" id="submit">
             Submit
           </button>
-          <br />
-          <br />
-          <a href="signup">First time user? Sign up</a>
         </form>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Signup;
