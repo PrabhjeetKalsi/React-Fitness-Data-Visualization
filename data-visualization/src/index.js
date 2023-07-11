@@ -15,7 +15,7 @@ updateMocks().then(() => {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="signup" element={<Signup />} />
-          <Route path="user" element={<App />} />
+          <Route path="/:username" element={<App />} />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

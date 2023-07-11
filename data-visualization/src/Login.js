@@ -33,7 +33,7 @@ function Login() {
     e.preventDefault();
     const userData = { username, password };
     sendUserToServer(userData);
-    navigate("/user");
+    navigate(`/${username}`);
   };
 
   return (

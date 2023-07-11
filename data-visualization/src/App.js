@@ -15,6 +15,7 @@ import {
   bicepCurlData,
   bicepCurlOptions,
 } from "./mocks/bicepCurlMockGraphData.js";
+import { useParams } from "react-router-dom";
 
 const exercises = ["Leg Press", "Dumbell Press", "Bicep Curl"];
 
@@ -37,6 +38,8 @@ function App() {
     data: bicepCurlData,
   });
 
+  const { username } = useParams();
+
   const sendDataToServer = async (data) => {
     try {
       const response = await axios.post("/data", { data });
@@ -48,7 +51,7 @@ function App() {
 
   const updateChartData = (formData) => {
     const { exercise, weight, reps, date } = formData;
-    sendDataToServer(formData);
+    sendDataToServer({ ...formData, username });
     if (exercise === "Leg Press") {
       legPressChartData.data.datasets.forEach((dataset, idx) => {
         if (idx === 1) {

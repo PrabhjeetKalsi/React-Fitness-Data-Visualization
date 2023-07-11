@@ -5,6 +5,7 @@ const dataSchema = new mongoose.Schema({
   weight: String,
   reps: String,
   date: String,
+  username: String,
 });
 
 const Data = mongoose.model("Data", dataSchema);
