@@ -1,20 +1,20 @@
-import Graph from "./components/Graph.js";
-import Form from "./components/Form.js";
-import Navbar from "./components/Navbar.js";
+import Graph from "../components/Graph.js";
+import Form from "../components/Form.js";
+import Navbar from "../components/Navbar.js";
 import axios from "axios";
 import { useState } from "react";
 import {
   legPressOptions,
   legPressData,
-} from "./mocks/legPressMockGraphData.js";
+} from "../mocks/legPressMockGraphData.js";
 import {
   dumbellPressData,
   dumbellPressOptions,
-} from "./mocks/dumbellPressMockGraphData.js";
+} from "../mocks/dumbellPressMockGraphData.js";
 import {
   bicepCurlData,
   bicepCurlOptions,
-} from "./mocks/bicepCurlMockGraphData.js";
+} from "../mocks/bicepCurlMockGraphData.js";
 import { useParams } from "react-router-dom";
 
 const exercises = ["Leg Press", "Dumbell Press", "Bicep Curl"];

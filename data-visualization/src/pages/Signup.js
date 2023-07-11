@@ -1,6 +1,6 @@
-import "./css/Form.css";
+import "../css/Form.css";
 import { useState } from "react";
-import Navbar from "./components/Navbar.js";
+import Navbar from "../components/Navbar.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -33,7 +33,7 @@ function Signup() {
     e.preventDefault();
     const userData = { username, password };
     sendUserToServer(userData);
-    navigate("/user");
+    navigate(`/${username}`);
   };
 
   return (
