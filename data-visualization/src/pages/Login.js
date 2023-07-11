@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Login() {
+function Login({ login }) {
   const [invalidUser, updateInvalidUser] = useState(false);
 
   const [username, updateUsername] = useState("");
@@ -25,6 +25,7 @@ function Login() {
     try {
       const response = await axios.post("/userLogin", { user });
       if (!response.data) {
+        login();
         navigate(`/${username}`);
       } else {
         updateInvalidUser(true);

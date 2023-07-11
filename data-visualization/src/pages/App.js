@@ -19,7 +19,7 @@ import { useParams } from "react-router-dom";
 
 const exercises = ["Leg Press", "Dumbell Press", "Bicep Curl"];
 
-function App() {
+function App({ loggedIn }) {
   //Leg Press State Def
   const [legPressChartData, setLegPressChartData] = useState({
     options: legPressOptions,
@@ -111,6 +111,9 @@ function App() {
     }
   });
 
+  if (!loggedIn) {
+    return <h1>Page Not Found!!!</h1>;
+  }
   return (
     <div className="App">
       <Navbar />
