@@ -1,14 +1,7 @@
-let dateLabels = [
-  "Jun 10, 2023",
-  "Jun 11, 2023",
-  "Jun 12, 2023",
-  "Jun 13, 2023",
-  "Jun 14, 2023",
-  "Jun 15, 2023",
-];
-let bicepCurlReps = [6, 7, 7, 8, 10, 11];
-let bicepCurlWeight = [10, 12.5, 7.5, 12.5, 10, 12.5];
-let username = ["", "", "", "", "", ""];
+let dateLabels = [];
+let bicepCurlReps = [];
+let bicepCurlWeight = [];
+let username = [];
 
 export let bicepCurlData = {
   username: username,

@@ -1,14 +1,7 @@
-let dateLabels = [
-  "Jun 10, 2023",
-  "Jun 11, 2023",
-  "Jun 12, 2023",
-  "Jun 13, 2023",
-  "Jun 14, 2023",
-  "Jun 15, 2023",
-];
-let dumbellPressReps = [6, 7, 7, 8, 10, 11];
-let dumbellPressWeight = [30, 40, 30, 40, 40, 30];
-let username = ["", "", "", "", "", ""];
+let dateLabels = [];
+let dumbellPressReps = [];
+let dumbellPressWeight = [];
+let username = [];
 
 export let dumbellPressData = {
   username: username,
