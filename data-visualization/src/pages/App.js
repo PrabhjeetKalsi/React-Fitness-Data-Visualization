@@ -150,6 +150,14 @@ function App({ loggedIn, loggedInUser }) {
   return (
     <div className="App">
       <Navbar />
+      <div className="d-flex flex-row-reverse">
+        <button
+          className="btn btn-outline-danger mx-5 my-3"
+          onClick={goToLoginPage}
+        >
+          Logout
+        </button>
+      </div>
       <Form updateChartData={updateChartData} />
       {Graphs}
     </div>
