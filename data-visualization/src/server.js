@@ -50,10 +50,24 @@ app.get("/getdata", (req, res) => {
     });
 });
 
-app.post("/userSignup", (req, res) => {
+app.post("/userSignup", async (req, res) => {
   const { user } = req.body;
-  const newUser = new User(user);
-  newUser.save();
+  const enteredUsername = user.username;
+  let save = true;
+  await User.findOne({ username: enteredUsername })
+    .then((user) => {
+      if (user) {
+        save = false;
+        res.send("User found");
+      } else {
+        res.send("User not found");
+      }
+    })
+    .catch((err) => console.log(err));
+  if (save) {
+    const newUser = new User(user);
+    newUser.save();
+  }
 });
 
 app.post("/userLogin", async (req, res) => {
