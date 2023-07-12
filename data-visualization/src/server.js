@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Data = require("./schema/data");
 const User = require("./schema/user");
+const bcrypt = require("bcryptjs");
+
 const app = express();
 const port = process.env.PORT || 5000;
 const userName = process.argv[2];
@@ -55,23 +57,26 @@ app.post("/userSignup", (req, res) => {
   const { user } = req.body;
   const newUser = new User(user);
   newUser.save();
-
-  //Logging Received User
-  console.log("Received user:", user);
-  res.send("User received successfully!");
 });
 
-app.post("/userLogin", (req, res) => {
+app.post("/userLogin", async (req, res) => {
   const { user } = req.body;
-
-  User.find({ username: user.username, password: user.password })
+  const enteredPassword = user.password;
+  const enteredUsername = user.username;
+  User.findOne({ username: enteredUsername })
     .then((user) => {
-      if (user.length === 0) {
-        res.send(
-          "User Not found or wrong password!! If you are first time user please signup"
-        );
+      if (!user) {
+        res.send("User not found");
       } else {
-        res.send("");
+        bcrypt.compare(enteredPassword, user.password, (err, isMatch) => {
+          if (err) {
+            console.error(err);
+          } else if (isMatch) {
+            res.send("");
+          } else {
+            res.send("Password is incorrect");
+          }
+        });
       }
     })
     .catch((err) => console.log(err));
