@@ -19,7 +19,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 const exercises = ["Leg Press", "Dumbell Press", "Bicep Curl"];
 
-function App({ loggedIn }) {
+function App({ loggedIn, loggedInUser }) {
   //Leg Press State Def
   const [legPressChartData, setLegPressChartData] = useState({
     options: legPressOptions,
@@ -103,11 +103,29 @@ function App({ loggedIn }) {
   const Graphs = [];
   exercises.forEach((exercise, idx) => {
     if (exercise === "Leg Press") {
-      Graphs.push(<Graph key={idx} chartData={legPressChartData} />);
+      Graphs.push(
+        <Graph
+          key={idx}
+          chartData={legPressChartData}
+          loggedInUser={username}
+        />
+      );
     } else if (exercise === "Dumbell Press") {
-      Graphs.push(<Graph key={idx} chartData={dumbellPressChartData} />);
+      Graphs.push(
+        <Graph
+          key={idx}
+          chartData={dumbellPressChartData}
+          loggedInUser={username}
+        />
+      );
     } else {
-      Graphs.push(<Graph key={idx} chartData={bicepCurlChartData} />);
+      Graphs.push(
+        <Graph
+          key={idx}
+          chartData={bicepCurlChartData}
+          loggedInUser={username}
+        />
+      );
     }
   });
 

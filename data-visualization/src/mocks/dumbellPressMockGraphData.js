@@ -8,8 +8,10 @@ let dateLabels = [
 ];
 let dumbellPressReps = [6, 7, 7, 8, 10, 11];
 let dumbellPressWeight = [30, 40, 30, 40, 40, 30];
+let username = ["", "", "", "", "", ""];
 
 export let dumbellPressData = {
+  username: username,
   labels: dateLabels,
   datasets: [
     {

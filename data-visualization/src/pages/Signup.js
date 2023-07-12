@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function Signup({ login }) {
+function Signup({ login, updateUser }) {
   const [username, updateUsername] = useState("");
 
   const [password, updatePassword] = useState("");
@@ -34,6 +34,7 @@ function Signup({ login }) {
     const userData = { username, password };
     sendUserToServer(userData);
     login();
+    updateUser(username);
     navigate(`/${username}`);
   };
 

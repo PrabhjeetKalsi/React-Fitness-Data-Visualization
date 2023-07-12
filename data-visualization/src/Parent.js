@@ -6,16 +6,29 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function Parent() {
   const [loggedIn, updateLoggedIn] = useState(false);
+  const [loggedInUser, updateLoggedInUser] = useState("");
   const login = () => {
     updateLoggedIn(true);
+  };
+  const updateUser = (user) => {
+    updateLoggedInUser(user);
   };
   return (
     <React.StrictMode>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login login={login} />} />
-          <Route path="signup" element={<Signup login={login} />} />
-          <Route path="/:username" element={<App loggedIn={loggedIn} />} />
+          <Route
+            path="/"
+            element={<Login login={login} updateUser={updateUser} />}
+          />
+          <Route
+            path="signup"
+            element={<Signup login={login} updateUser={updateUser} />}
+          />
+          <Route
+            path="/:username"
+            element={<App loggedIn={loggedIn} loggedInUser={loggedInUser} />}
+          />
         </Routes>
       </BrowserRouter>
     </React.StrictMode>

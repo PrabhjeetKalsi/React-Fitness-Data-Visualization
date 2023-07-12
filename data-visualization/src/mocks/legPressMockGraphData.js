@@ -8,8 +8,10 @@ let dateLabels = [
 ];
 let legPressReps = [6, 7, 7, 8, 10, 11];
 let legPressWeight = [70, 85, 100, 100, 130, 130];
+let username = ["", "", "", "", "", ""];
 
 export let legPressData = {
+  username: username,
   labels: dateLabels,
   datasets: [
     {
