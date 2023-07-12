@@ -40,6 +40,8 @@ export const updateMocks = async () => {
           bicepCurlData.datasets[0].data.push(d.reps);
           bicepCurlData.datasets[1].data.push(d.weight);
           break;
+        default:
+          break;
       }
     });
   });
