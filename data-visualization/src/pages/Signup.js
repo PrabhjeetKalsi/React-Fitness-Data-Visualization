@@ -29,7 +29,6 @@ function Signup({ login, updateUser }) {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    console.log(username, password);
     e.preventDefault();
     const userData = { username, password };
     sendUserToServer(userData);

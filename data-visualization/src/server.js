@@ -36,9 +36,6 @@ app.post("/data", (req, res) => {
   const { data } = req.body;
   const newData = new Data(data);
   newData.save();
-
-  //Logging Received Data
-  console.log("Received data:", data);
   res.send("Data received successfully!");
 });
 

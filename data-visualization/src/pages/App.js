@@ -42,8 +42,7 @@ function App({ loggedIn, loggedInUser }) {
 
   const sendDataToServer = async (data) => {
     try {
-      const response = await axios.post("/data", { data });
-      console.log(response.data);
+      await axios.post("/data", { data });
     } catch (error) {
       console.log(error);
     }
