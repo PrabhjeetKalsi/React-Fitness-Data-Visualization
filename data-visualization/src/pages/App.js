@@ -2,6 +2,7 @@ import Graph from "../components/Graph.js";
 import Form from "../components/Form.js";
 import Navbar from "../components/Navbar.js";
 import axios from "axios";
+import SessionLoggedOut from "../components/SessionLoggedOut.js";
 import { useState } from "react";
 import {
   legPressOptions,
@@ -135,16 +136,7 @@ function App({ loggedIn, loggedInUser }) {
   }
 
   if (!loggedIn) {
-    return (
-      <div className="d-flex justify-content-center my-5">
-        <h1>Session Logged Out!!!</h1>
-        <div>
-          <button className="btn border-dark my-2 mx-4" onClick={goToLoginPage}>
-            Click here to login again
-          </button>
-        </div>
-      </div>
-    );
+    return <SessionLoggedOut goToLoginPage={goToLoginPage} />;
   }
   return (
     <div className="App">
