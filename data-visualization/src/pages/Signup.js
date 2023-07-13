@@ -1,6 +1,7 @@
 import "../css/Form.css";
 import { useState } from "react";
 import Navbar from "../components/Navbar.js";
+import SignupForm from "../components/SignupForm";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -42,87 +43,16 @@ function Signup({ login, updateUser }) {
     sendUserToServer(userData);
   };
 
-  if (!validUsername) {
-    return (
-      <div>
-        <Navbar />
-        <div className="small form-align">
-          <form
-            id="data-form"
-            className="my-3 mx-5 px-5 py-4 rounded-3"
-            style={{ backgroundColor: "#E0E8F3", maxWidth: "320px" }}
-            onSubmit={handleSubmit}
-          >
-            <h4 className="mb-4 form-heading">Signup</h4>
-            <div className="mb-3">
-              <label className="form-label">Username</label>
-              <input
-                type="text"
-                className="form-control"
-                onChange={handleUsername}
-                required
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                onChange={handlePassword}
-                required
-              />
-              <p style={{ color: "red" }}>
-                Username already taken. Please use some other username.
-              </p>
-            </div>
-            <button type="submit" className="btn form-button" id="submit">
-              Submit
-            </button>
-            <br />
-            <br />
-            <a href="/">Existing user? Login</a>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div>
       <Navbar />
       <div className="small form-align">
-        <form
-          id="data-form"
-          className="my-3 mx-5 px-5 py-4 rounded-3"
-          style={{ backgroundColor: "#E0E8F3" }}
-          onSubmit={handleSubmit}
-        >
-          <h4 className="mb-4 form-heading">Signup</h4>
-          <div className="mb-3">
-            <label className="form-label">Username</label>
-            <input
-              type="text"
-              className="form-control"
-              onChange={handleUsername}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              className="form-control"
-              onChange={handlePassword}
-              required
-            />
-          </div>
-          <button type="submit" className="btn form-button" id="submit">
-            Submit
-          </button>
-          <br />
-          <br />
-          <a href="/">Existing user? Login</a>
-        </form>
+        <SignupForm
+          handlePassword={handlePassword}
+          handleSubmit={handleSubmit}
+          handleUsername={handleUsername}
+          validUsername={validUsername}
+        />
       </div>
     </div>
   );
