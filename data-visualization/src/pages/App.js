@@ -3,6 +3,7 @@ import Form from "../components/Form.js";
 import Navbar from "../components/Navbar.js";
 import axios from "axios";
 import SessionLoggedOut from "../components/SessionLoggedOut.js";
+import LogoutBtn from "../components/LogoutBtn.js";
 import { useState } from "react";
 import {
   legPressOptions,
@@ -142,12 +143,7 @@ function App({ loggedIn, loggedInUser }) {
     <div className="App">
       <Navbar />
       <div className="d-flex flex-row-reverse">
-        <button
-          className="btn btn-outline-danger mx-5 my-3"
-          onClick={goToLoginPage}
-        >
-          Logout
-        </button>
+        <LogoutBtn goToLoginPage={goToLoginPage} />
       </div>
       <Form updateChartData={updateChartData} />
       {Graphs}
